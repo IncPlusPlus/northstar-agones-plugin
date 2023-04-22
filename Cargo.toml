@@ -7,6 +7,8 @@ edition = "2021"
 
 [dependencies]
 rrplug = "2.0.0"
+agones = { git = "https://github.com/googleforgames/agones.git", tag = "v1.31.0" }
+tokio = { version = "1.7", features = ["macros", "sync"] }
 
 [build-dependencies]
 windres = "0.2.2"
