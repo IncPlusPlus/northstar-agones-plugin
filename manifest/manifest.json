@@ -1,6 +1,6 @@
 {
 	"name": "northstar-agones-plugin",
-	"displayname": "northstar-agones-plugin",
+	"displayname": "Agones SDK Plugin",
 	"description": "A Northstar server plugin that integrates with the Agones SDK",
 	"api_version": "2",
 	"version": "1.0",
