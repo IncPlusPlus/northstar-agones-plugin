@@ -1,0 +1,26 @@
+name: CI
+on: [push, pull_request]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        run: |
+          cargo build --release --verbose
+      - name: Extract Short Commit Hash
+        id: extract
+        shell: bash
+        run: echo commit=$(git rev-parse --short HEAD) >> $GITHUB_OUTPUT
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: NorthstarAgonesPlugin-${{ steps.extract.outputs.commit }}
+          path: |
+            target/release/*.dll
+            target/release/*.pdb
