@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  northstar1:
+    image: ghcr.io/pg9182/northstar-dedicated:1-tf2.0.11.0
+    pull_policy: always
+    container_name: ns-cont
+    environment:
+      - NS_PORT=37020
+      - NS_PORT_AUTH=8081
+      - 'NS_SERVER_NAME=your server name'
+      - 'NS_SERVER_DESC=your server description'
+      - NS_MASTERSERVER_REGISTER=0
+      - NS_INSECURE=1
+      - |
+        NS_EXTRA_ARGUMENTS=
+        +setplaylist private_match
+        +net_compresspackets_minsize 64
+        +net_compresspackets 1
+        +spewlog_enable 0
+        +sv_maxrate 127000
+    volumes:
+      - '/home/ryan/Titanfall22/:/mnt/titanfall:ro'
+    ports:
+      - '37020:37020/udp'
+      - '8081:8081/tcp'
+    restart: always
