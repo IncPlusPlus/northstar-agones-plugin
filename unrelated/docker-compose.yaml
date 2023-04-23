@@ -6,8 +6,8 @@ services:
     pull_policy: always
     container_name: ns-cont
     environment:
-      - NS_PORT=37020
-      - NS_PORT_AUTH=8081
+      - NS_PORT=37015
+      - NS_PORT_AUTH=37115
       - 'NS_SERVER_NAME=your server name'
       - 'NS_SERVER_DESC=your server description'
       - NS_MASTERSERVER_REGISTER=0
@@ -22,6 +22,6 @@ services:
     volumes:
       - '/home/ryan/Titanfall22/:/mnt/titanfall:ro'
     ports:
-      - '37020:37020/udp'
-      - '8081:8081/tcp'
+      - '37015:37015/udp'
+      - '37115:37115/tcp'
     restart: always
